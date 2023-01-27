@@ -3,6 +3,14 @@ import { Box, Typography, Button } from "@mui/material";
 import { connectWeb3 } from "../utils/connect";
 
 const Navbar = () => {
+  useEffect(() => {
+    if (localStorage.getItem("btn") === "connected") {
+      localStorage.setItem("address", window.ethereum.selectedAddress);
+      console.log("connected");
+    } else {
+      console.log("not connected");
+    }
+  }, []);
   return (
     <Box
       sx={{
